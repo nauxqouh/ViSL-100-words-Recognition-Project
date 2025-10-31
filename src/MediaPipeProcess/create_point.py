@@ -11,8 +11,8 @@ def create_noise_point(point, eps):
     x, y, z = tuple(point)
     ex = random.uniform(-eps, eps)
     ey = random.uniform(-eps, eps)
-    # ez = random.uniform(-0.5, 0.5)
-    return [x + ex, y + ey, 0]
+    ez = random.uniform(-0.005, 0.0005)
+    return [x + ex, y + ey, z + ez]
 
 def create_point_by_k(A, B, M, k):
     """Create a new point M' such that vector MM' is k times vector AB."""
@@ -21,15 +21,15 @@ def create_point_by_k(A, B, M, k):
     xM, yM, zM = tuple(M)
     x = xB - xA
     y = yB - yA
-    # z = zB - zA
-    return [xM + k * x, yM + k *y, 0]
+    z = zB - zA
+    return [xM + k * x, yM + k *y, zM + k*z]
 
 def distance(M1, M2):
     """Calculate euclidean distance between two points."""
     x1, y1, z1 = tuple(M1)
     x2, y2, z2 = tuple(M2)
-    # d = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2)
-    d = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    d = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2)
+    # d = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
     return d
 
 def calculate_k(A1, B1, M1, N1):

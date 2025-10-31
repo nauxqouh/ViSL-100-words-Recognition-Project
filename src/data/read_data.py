@@ -1,5 +1,5 @@
 import os
-from src.MediaPipeProcess.create_numpy_data import write_data
+from src.MediaPipeProcess.create_numpy_data import write_data, write_data_v1
 import src.utils.utils as utils
 from config.paths import data_dir, keypoint_dir
 import cv2 
@@ -31,7 +31,9 @@ def extract_keypoint_from_videos(root_dir, des_dir):
             list_file = utils.list_files(path)
             for i in range(len(list_file)):
                 path_to_file = os.path.join(path, list_file[i])
-                write_data(new_path, path_to_file, str(i) + ".npy")
+                print(i+1)
+                # write_data(new_path, path_to_file, str(i) + ".npy")
+                write_data_v1(new_path, path_to_file, str(i) + ".npy")
                 
 if __name__ == "__main__":
-    extract_keypoint_from_videos(data_dir, keypoint_dir)
+    extract_keypoint_from_videos(data_dir, 'dataset/keypoints_v1')

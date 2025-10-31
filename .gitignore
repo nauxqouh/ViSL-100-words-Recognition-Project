@@ -1,8 +1,5 @@
-dataset/videos
-dataset/images
-dataset/keypoints
-dataset/new_data
-dataset/metadata_v1.jsonl
+dataset/*
+!dataset/data_source.md
 __pycache__/
 .env
 .DS_Store
@@ -10,3 +7,4 @@ __pycache__/
 config/paths.py
 notebooks/*
 !notebooks/ViSL_LSTM_v1.ipynb
+!notebooks/ViSL_LSTM_v2.ipynb
